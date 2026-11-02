@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug (J-Link)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "executable": "${workspaceFolder}/minispin.elf",
+            "device": "LKS32MC03x",
+            "interface": "swd",
+            "svdFile": "${workspaceFolder}/platform/share/LKS32MC03x.svd",
+            "ipAddress": "jlink.maxchan.xyz",
+            "runToEntryPoint": "main",
+            "preLaunchTask": "Build",
+            "serverpath": "C:\\Program Files\\SEGGER\\Jlink\\JLinkGDBServerCL.exe",
+            "serverArgs": ["-reset_type", "2"],
+            "showDevDebugOutput": "raw"
+        }
+    ]
+}

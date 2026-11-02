@@ -22,11 +22,11 @@ DEPS := $(OBJS:.o=.d)
 
 CPUFLAGS := -mcpu=cortex-m0 -mthumb
 CPPFLAGS := -Iinclude -Iplatform/include -Icmsis/include
-CFLAGS := $(CPUFLAGS) -MMD -MP 
+CFLAGS := $(CPUFLAGS) -std=gnu17 -MMD -MP 
 ASFLAGS := $(CPUFLAGS) -MMD -MP
 LDFLAGS := -Llib -Lplatform/lib -Tminispin.ld -Wl,--gc-sections # Platform code include a linker script fragment.
 
-all: $(TARGET)
+all: headers $(TARGET)
 hex: $(TARGET_HEX)
 bin: $(TARGET_BIN)
 headers: $(GENHDRS)
