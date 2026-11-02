@@ -30,11 +30,35 @@ __attribute__((used, section(".vector"))) vector_t vector[] = {
 #undef IRQN_HANDLER
 #undef SKIP_HANDLER
 
+extern uint32_t __vector_start__;
+extern uint32_t __vector_load__;
+extern uint32_t __vector_end__;
+
+extern uint32_t __data_start__;
+extern uint32_t __data_load__;
+extern uint32_t __data_end__;
+
+extern uint32_t __bss_start__;
+extern uint32_t __bss_end__;
+
 static void Reset_IRQHandler(void) {
-    for (;;) __WFE(); // stub
+
+    SystemInit(); // Initialize system clock
+
+    memcpy(&__vector_start__, &__vector_load__, &__vector_end__ - &__vector_start__);
+    memcpy(&__data_start__, &__data_load__, &__data_end__ - &__data_start__);
+    memset(&__bss_start__, 0, &__bss_end__ - &__bss_start__);
+
+    *((volatile uint32_t *)&SCB->RESERVED0 /* VTOR */) = (uint32_t)vector;
+
+    _start();
+
+    for (;;) __WFE();
 }
 
 static void Default_IRQHandler(void) {
     __BKPT();
     for (;;) __WFE();
 }
+
+__attribute__((weak, alias("Default_IRQHandler"))) void _exit(void);

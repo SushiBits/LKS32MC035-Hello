@@ -22,7 +22,7 @@ DEPS := $(OBJS:.o=.d)
 
 CPUFLAGS := -mcpu=cortex-m0 -mthumb
 CPPFLAGS := -Iinclude -Iplatform/include -Icmsis/include
-CFLAGS := $(CPUFLAGS) -std=gnu17 -MMD -MP 
+CFLAGS := $(CPUFLAGS) -std=gnu17 -MMD -MP -Og
 ASFLAGS := $(CPUFLAGS) -MMD -MP
 LDFLAGS := -Llib -Lplatform/lib -Tminispin.ld -Wl,--gc-sections # Platform code include a linker script fragment.
 
