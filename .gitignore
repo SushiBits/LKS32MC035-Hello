@@ -106,3 +106,7 @@ fp-info-cache
 
 # Local project settings
 *.kicad_prl
+
+# Auto-generated platform headers and handlers
+platform/include/LKS32MC03x.h
+platform/include/LKS32MC03x_handlers.h
