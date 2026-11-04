@@ -14,3 +14,15 @@ See [here](hardware/) for the KiCad project. See schematics
 
 This project is a self-contained Visual Studio Code workspace. Due to my heavy
 customization of vendor SDK files, I am not involving PlatformIO.
+
+## Copyright
+
+Copyright &copy; 2026 HIKARU Infotech Shanghai Ltd. All rights reserved.
+
+This is [open-source](LICENSE.md) hardware and software under 3-clause BSD
+license.
+
+The `doc/LKS32MC03x*.pdf` and `platform/share/LKS32MC03x.svd` files' copyright
+belong to Linko Semiconductor Co. Ltd. with my edits.
+
+Files under `cmsis` copyright Arm Inc. See [its own license](cmsis/LICENSE).
