@@ -1,0 +1,28 @@
+
+int AfterResetTarget(void) {
+    // Unlock SYS before we can write to the SYS registers.
+    // This is a requirement for the Linko devices.
+    JLINK_MEM_WriteU16(0x400000A8, 0x7A83);
+
+    // We set three flags in the SYS_DBG_CFG register to:
+    // * allow debugging in sleep and stop modes, (we use WFE in this project, so sleep mode is used)
+    // * halt the IWDG when debugging.
+    // This is a requirement for the Linko devices, as the IWDG is enabled by default with or without
+    // a debugger attached. Without this, the IWDG will reset the device amid a debugging session.
+    JLINK_MEM_WriteU16(0x40000088, 0x0023);
+    return 0;
+}
+
+// We repeat the same SYS register writes in SetupTarget() because the debugger may have NOT reset the device
+// and cleared these registers. So we need to set them again before we can reliably debug the device.
+int SetupTarget(void) {
+    JLINK_MEM_WriteU16(0x400000A8, 0x7A83);
+    JLINK_MEM_WriteU16(0x40000088, 0x0023);
+    return 0;
+}
+
+int HandleBeforeFlashProg(void) {
+    // Linko did not supply a Flash algorithm that supported partial flash programming.
+    // So we need to erase the entire flash before programming.
+    return JLINK_ExecCommand("erase");
+}
