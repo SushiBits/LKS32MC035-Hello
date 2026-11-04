@@ -11,7 +11,7 @@
 
 void __stack(void); // Stack pointer, to be palced by linker script.
 void _start(void); // C runtime entry point.
-static void Reset_IRQHandler(void);
+void Reset_IRQHandler(void);
 static void Default_IRQHandler(void);
 
 __attribute__((used, section(".vector"))) vector_t vector[] = {
@@ -30,18 +30,18 @@ __attribute__((used, section(".vector"))) vector_t vector[] = {
 #undef IRQN_HANDLER
 #undef SKIP_HANDLER
 
-extern uint32_t __vector_start__;
-extern uint32_t __vector_load__;
-extern uint32_t __vector_end__;
+extern uint8_t __vector_start__;
+extern uint8_t __vector_load__;
+extern uint8_t __vector_end__;
 
-extern uint32_t __data_start__;
-extern uint32_t __data_load__;
-extern uint32_t __data_end__;
+extern uint8_t __data_start__;
+extern uint8_t __data_load__;
+extern uint8_t __data_end__;
 
-extern uint32_t __bss_start__;
-extern uint32_t __bss_end__;
+extern uint8_t __bss_start__;
+extern uint8_t __bss_end__;
 
-static void Reset_IRQHandler(void) {
+void Reset_IRQHandler(void) {
 
     SystemInit(); // Initialize system clock
 
@@ -50,6 +50,8 @@ static void Reset_IRQHandler(void) {
     memset(&__bss_start__, 0, &__bss_end__ - &__bss_start__);
 
     *((volatile uint32_t *)&SCB->RESERVED0 /* VTOR */) = (uint32_t)vector;
+
+    SystemCoreClockUpdate();
 
     _start();
 

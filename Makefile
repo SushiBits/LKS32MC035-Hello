@@ -6,8 +6,11 @@ TARGETS := $(TARGET) $(TARGET_HEX) $(TARGET_BIN)
 
 ARCH := arm-none-eabi-
 CC := $(ARCH)gcc
-AS := $(ARCH)gcc -x assembler-with-cpp
-CCLD := $(ARCH)gcc
+CXX := $(ARCH)g++
+AS := $(ARCH)as
+CCAS := $(CC) -x assembler-with-cpp
+CCLD := $(CC)
+CXXLD := $(CXX)
 OBJCOPY := $(ARCH)objcopy
 
 SVDCONV_PATH := C:\Keil_v5\UV4
@@ -15,24 +18,39 @@ SVDCONV := $(SVDCONV_PATH)/SVDConv.exe
 
 GENHDRS := platform/include/LKS32MC03x.h platform/include/LKS32MC03x_handlers.h
 
-C_FILES := $(wildcard src/*.c) $(wildcard platform/src/*.c) # there is no cmsis/src
-S_FILES := $(wildcard src/*.S) $(wildcard platform/src/*.S) # there is no cmsis/src
-OBJS := $(C_FILES:.c=.c.o) $(S_FILES:.S=.S.o)
+SRC_PATHS := src platform/src
+HEADER_PATHS := include platform/include cmsis/include
+LIB_PATHS := lib platform/lib
+LIBS += -lm
+
+C_FILES := $(wildcard $(addsuffix /*.c, $(SRC_PATHS)))
+CXX_FILES := $(wildcard $(addsuffix /*.cc, $(SRC_PATHS)) $(addsuffix /*.cpp, $(SRC_PATHS)))
+S_FILES := $(wildcard $(addsuffix /*.S, $(SRC_PATHS)) $(addsuffix /*.s, $(SRC_PATHS)))
+LD_FILES := $(wildcard $(addsuffix /*.ld, $(LIB_PATHS)))
+SRC_FILES := $(C_FILES) $(CXX_FILES) $(S_FILES)
+OBJS := $(addsuffix .o, $(SRC_FILES))
 DEPS := $(OBJS:.o=.d)
 
 CPUFLAGS := -mcpu=cortex-m0 -mthumb
-CPPFLAGS := -Iinclude -Iplatform/include -Icmsis/include
-CFLAGS := $(CPUFLAGS) -std=gnu17 -MMD -MP -Og
-ASFLAGS := $(CPUFLAGS) -MMD -MP
-LDFLAGS := -Llib -Lplatform/lib -Tminispin.ld -Wl,--gc-sections # Platform code include a linker script fragment.
+CPPFLAGS := $(addprefix -I, $(HEADER_PATHS))
+OPTFLAGS := -Og -g
+WARNFLAGS := -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function
+GENFLAGS := -ffunction-sections -fdata-sections
+DEPFLAGS := -MMD -MP
+
+CFLAGS := $(CPUFLAGS) -std=gnu17 $(DEPFLAGS) $(GENFLAGS) $(OPTFLAGS) $(WARNFLAGS)
+CXXFLAGS := $(CPUFLAGS) -std=gnu++17 $(DEPFLAGS) $(GENFLAGS) $(OPTFLAGS) $(WARNFLAGS)
+ASFLAGS := $(CPUFLAGS) $(DEPFLAGS) $(GENFLAGS) $(OPTFLAGS) $(WARNFLAGS)
+LDFLAGS := $(CPUFLAGS) $(addprefix -L, $(LIB_PATHS)) -Wl,-Tminispin.ld -Wl,--gc-sections # Platform code include a linker script fragment.
 
 all: headers $(TARGET)
 hex: $(TARGET_HEX)
 bin: $(TARGET_BIN)
 headers: $(GENHDRS)
+.PHONY: all hex bin headers clean distclean
 
 platform/include/LKS32MC03x.h: platform/share/LKS32MC03x.svd
-	-$(SVDCONV) $< -o $(dir $@) --generate=header
+	-$(SVDCONV) $< -o $(dir $@) --generate=header --fields=macro --fields=enum
 
 platform/include/LKS32MC03x_handlers.h: platform/include/LKS32MC03x.h
 	bash platform/share/irqn.sh "\"LKS32MC03x_it.h\"" < $< > $@
@@ -40,11 +58,20 @@ platform/include/LKS32MC03x_handlers.h: platform/include/LKS32MC03x.h
 %.c.o: %.c $(GENHDRS)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-%.S.o: %.S $(GENHDRS)
-	$(AS) $(CPPFLAGS) $(ASFLAGS) -c $< -o $@
+%.cc.o: %.cc $(GENHDRS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-$(TARGET): $(OBJS)
-	$(CCLD) $(LDFLAGS) $(OBJS) $(LIBS) -o $(TARGET)
+%.cpp.o: %.cpp $(GENHDRS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+%.S.o: %.S $(GENHDRS)
+	$(CCAS) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+%.s.o: %.s $(GENHDRS)
+	$(AS) $(ASFLAGS) -c $< -o $@
+
+$(TARGET): $(OBJS) $(LD_FILES)
+	$(if $(CXX_FILES),$(CXXLD),$(CCLD)) $(LDFLAGS) $(OBJS) $(LIBS) -o $(TARGET)
 
 %.ihx: %.elf
 	$(OBJCOPY) -O ihex $< $@
