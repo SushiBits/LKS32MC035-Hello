@@ -11575,9 +11575,22 @@
           <addressOffset>0x00</addressOffset>
           <size>16</size>
           <access>write-only</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-  
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
+          <fields>
+            <field>
+              <name>PSW</name>
+              <description>IWDG access password (excluding CFG)</description>
+              <bitRange>[15:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>PSW</name>
+                  <description>IWDG access password</description>
+                  <value>0xA6B4</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
         </register>
   
       <!-- CFG -->
@@ -11587,10 +11600,23 @@
           <addressOffset>0x04</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0001</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
+            <field>
+              <name>DISABLE_KEY</name>
+              <description>IWDG disable key</description>
+              <bitRange>[15:8]</bitRange>
+              <access>write-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>KEY</name>
+                  <description>IWDG disable key</description>
+                  <value>0x3C</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
             <field>
               <name>DWK_EN</name>
               <description>Deep wakeup enable</description>
