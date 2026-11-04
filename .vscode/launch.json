@@ -15,7 +15,7 @@
             "preLaunchTask": "Build",
             "serverpath": "C:\\Program Files\\SEGGER\\Jlink\\JLinkGDBServerCL.exe",
             "serverArgs": ["-reset_type", "2"],
-            "preLaunchCommands": ["monitor flash erase"]
+            //"preLaunchCommands": ["monitor flash erase"]
         }
     ]
 }

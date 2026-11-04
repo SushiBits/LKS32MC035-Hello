@@ -1,3 +1,10 @@
 {
-    "cortex-debug.variableUseNaturalFormat": true
+    "cortex-debug.variableUseNaturalFormat": true,
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\technix\\Documents\\Projects\\LKS32MD035-Hello",
+            "binaryPath": "c:\\Users\\technix\\Documents\\Projects\\LKS32MD035-Hello\\minispin.elf",
+            "binaryArgs": []
+        }
+    ]
 }
