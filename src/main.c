@@ -1,5 +1,10 @@
+/**
+ * @file main.c
+ * 
+ * Main entry point for the LKS32MC03x microcontroller.
+ */
 
-#include <LKS32MC03x.h>
+#include "LKS32MC03x.h"
 
 int main(void) {
     // Disable WDT.

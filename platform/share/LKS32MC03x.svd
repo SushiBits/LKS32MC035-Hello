@@ -8650,7 +8650,8 @@
       <name>GPIO0</name>
       <version>1.0</version>
       <description>GPIO0 registers</description>
-      <groupName>GPIO0</groupName>
+      <groupName>GPIO</groupName>
+      <headerStructName>GPIO</headerStructName>
       <baseAddress>0x40010800</baseAddress>
       <size>16</size>
       <access>read-write</access>
@@ -8665,7 +8666,7 @@
       <!-- PIE -->
         <register>
           <name>PIE</name>
-          <description>GPIO0 input enable</description>
+          <description>GPIO input enable</description>
           <addressOffset>0x00</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8675,7 +8676,7 @@
           <fields>
             <field>
               <name>PIE</name>
-              <description>GPIO0[n] input enable</description>
+              <description>GPIO[n] input enable</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8685,7 +8686,7 @@
       <!-- POE -->
         <register>
           <name>POE</name>
-          <description>GPIO0 output enable</description>
+          <description>GPIO output enable</description>
           <addressOffset>0x04</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8695,7 +8696,7 @@
           <fields>
             <field>
               <name>POE</name>
-              <description>GPIO0[n] output enable</description>
+              <description>GPIO[n] output enable</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8705,7 +8706,7 @@
       <!-- PDI -->
         <register>
           <name>PDI</name>
-          <description>GPIO0 input data</description>
+          <description>GPIO input data</description>
           <addressOffset>0x08</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8715,7 +8716,7 @@
           <fields>
             <field>
               <name>PDI</name>
-              <description>GPIO0[n] input data</description>
+              <description>GPIO[n] input data</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8725,7 +8726,7 @@
       <!-- PDO -->
         <register>
           <name>PDO</name>
-          <description>GPIO0 output data</description>
+          <description>GPIO output data</description>
           <addressOffset>0x0C</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8735,7 +8736,7 @@
           <fields>
             <field>
               <name>PDO</name>
-              <description>GPIO0[n] output data</description>
+              <description>GPIO[n] output data</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8745,7 +8746,7 @@
       <!-- PUE -->
         <register>
           <name>PUE</name>
-          <description>GPIO0 pull-up enable</description>
+          <description>GPIO pull-up enable</description>
           <addressOffset>0x10</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8755,7 +8756,7 @@
           <fields>
             <field>
               <name>PUE</name>
-              <description>GPIO0[n] pull-up enable</description>
+              <description>GPIO[n] pull-up enable</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8765,7 +8766,7 @@
       <!-- PODE -->
         <register>
           <name>PODE</name>
-          <description>GPIO0 open drain enable</description>
+          <description>GPIO open drain enable</description>
           <addressOffset>0x18</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8775,7 +8776,7 @@
           <fields>
             <field>
               <name>PODE</name>
-              <description>GPIO0[n] open drain enable</description>
+              <description>GPIO[n] open drain enable</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8785,7 +8786,7 @@
       <!-- PFLT -->
         <register>
           <name>PFLT</name>
-          <description>GPIO0 filter enable</description>
+          <description>GPIO filter enable</description>
           <addressOffset>0x1C</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8795,7 +8796,7 @@
           <fields>
             <field>
               <name>PFLT</name>
-              <description>GPIO0[n] filter enable</description>
+              <description>GPIO[n] filter enable</description>
               <bitRange>[15:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8805,7 +8806,7 @@
       <!-- F3210 -->
         <register>
           <name>F3210</name>
-          <description>GPIO0[3:0] function selection</description>
+          <description>GPIO[3:0] function selection</description>
           <addressOffset>0x20</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8815,25 +8816,25 @@
           <fields>
             <field>
               <name>F3</name>
-              <description>GPIO0[3] function selection</description>
+              <description>GPIO[3] function selection</description>
               <bitRange>[15:12]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F2</name>
-              <description>GPIO0[2] function selection</description>
+              <description>GPIO[2] function selection</description>
               <bitRange>[11:8]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F1</name>
-              <description>GPIO0[1] function selection</description>
+              <description>GPIO[1] function selection</description>
               <bitRange>[7:4]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F0</name>
-              <description>GPIO0[0] function selection</description>
+              <description>GPIO[0] function selection</description>
               <bitRange>[3:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8843,7 +8844,7 @@
       <!-- F7654 -->
         <register>
           <name>F7654</name>
-          <description>GPIO0[7:4] function selection</description>
+          <description>GPIO[7:4] function selection</description>
           <addressOffset>0x24</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8853,25 +8854,25 @@
           <fields>
             <field>
               <name>F7</name>
-              <description>GPIO0[7] function selection</description>
+              <description>GPIO[7] function selection</description>
               <bitRange>[15:12]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F6</name>
-              <description>GPIO0[6] function selection</description>
+              <description>GPIO[6] function selection</description>
               <bitRange>[11:8]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F5</name>
-              <description>GPIO0[5] function selection</description>
+              <description>GPIO[5] function selection</description>
               <bitRange>[7:4]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F4</name>
-              <description>GPIO0[4] function selection</description>
+              <description>GPIO[4] function selection</description>
               <bitRange>[3:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8881,7 +8882,7 @@
       <!-- FBA98 -->
         <register>
           <name>FBA98</name>
-          <description>GPIO0[11:8] function selection</description>
+          <description>GPIO[11:8] function selection</description>
           <addressOffset>0x28</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8891,25 +8892,25 @@
           <fields>
             <field>
               <name>F11</name>
-              <description>GPIO0[11] function selection</description>
+              <description>GPIO[11] function selection</description>
               <bitRange>[15:12]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F10</name>
-              <description>GPIO0[10] function selection</description>
+              <description>GPIO[10] function selection</description>
               <bitRange>[11:8]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F9</name>
-              <description>GPIO0[9] function selection</description>
+              <description>GPIO[9] function selection</description>
               <bitRange>[7:4]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F8</name>
-              <description>GPIO0[8] function selection</description>
+              <description>GPIO[8] function selection</description>
               <bitRange>[3:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8919,7 +8920,7 @@
       <!-- FFEDC -->
         <register>
           <name>FFEDC</name>
-          <description>GPIO0[15:12] function selection</description>
+          <description>GPIO[15:12] function selection</description>
           <addressOffset>0x2C</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -8929,25 +8930,25 @@
           <fields>
             <field>
               <name>F15</name>
-              <description>GPIO0[3] function selection</description>
+              <description>GPIO[3] function selection</description>
               <bitRange>[15:12]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F14</name>
-              <description>GPIO0[2] function selection</description>
+              <description>GPIO[2] function selection</description>
               <bitRange>[11:8]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F13</name>
-              <description>GPIO0[1] function selection</description>
+              <description>GPIO[1] function selection</description>
               <bitRange>[7:4]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>F12</name>
-              <description>GPIO0[0] function selection</description>
+              <description>GPIO[0] function selection</description>
               <bitRange>[3:0]</bitRange>
               <access>read-write</access>
             </field>
@@ -8957,7 +8958,7 @@
       <!-- BSRR -->
         <register>
           <name>BSRR</name>
-          <description>GPIO0 bit set reset reg</description>
+          <description>GPIO bit set reset reg</description>
           <addressOffset>0x30</addressOffset>
           <size>32</size>
           <access>write-only</access>
@@ -8967,13 +8968,13 @@
           <fields>
             <field>
               <name>CLR</name>
-              <description>GPIO0[n] write 1 to clear</description>
+              <description>GPIO[n] write 1 to clear</description>
               <bitRange>[31:16]</bitRange>
               <access>write-only</access>
             </field>
             <field>
               <name>SET</name>
-              <description>GPIO0[n] write 1 to set</description>
+              <description>GPIO[n] write 1 to set</description>
               <bitRange>[15:0]</bitRange>
               <access>write-only</access>
             </field>
@@ -8983,7 +8984,7 @@
       <!-- BRR -->
         <register>
           <name>BRR</name>
-          <description>GPIO0 bit reset reg</description>
+          <description>GPIO bit reset reg</description>
           <addressOffset>0x34</addressOffset>
           <size>32</size>
           <access>write-only</access>
@@ -8993,7 +8994,7 @@
           <fields>
             <field>
               <name>CLR</name>
-              <description>GPIO0[n] write 1 to clear</description>
+              <description>GPIO[n] write 1 to clear</description>
               <bitRange>[15:0]</bitRange>
               <access>write-only</access>
             </field>
@@ -9003,360 +9004,10 @@
     </peripheral>
   
     <!-- GPIO1 -->
-    <peripheral>
+    <peripheral derivedFrom="GPIO0">
       <name>GPIO1</name>
-      <version>1.0</version>
       <description>GPIO1 registers</description>
-      <groupName>GPIO1</groupName>
       <baseAddress>0x40010840</baseAddress>
-      <size>16</size>
-      <access>read-write</access>
-  
-      <addressBlock>
-        <offset>0</offset>
-        <size>0x40</size>
-        <usage>registers</usage>
-      </addressBlock>
-  
-      <registers>
-      <!-- PIE -->
-        <register>
-          <name>PIE</name>
-          <description>GPIO1 input enable</description>
-          <addressOffset>0x00</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>PIE</name>
-              <description>GPIO1[n] input enable</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- POE -->
-        <register>
-          <name>POE</name>
-          <description>GPIO1 output enable</description>
-          <addressOffset>0x04</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>POE</name>
-              <description>GPIO1[n] output enable</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- PDI -->
-        <register>
-          <name>PDI</name>
-          <description>GPIO1 input data</description>
-          <addressOffset>0x08</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>PDI</name>
-              <description>GPIO1[n] input data</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- PDO -->
-        <register>
-          <name>PDO</name>
-          <description>GPIO1 output data</description>
-          <addressOffset>0x0C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>PDO</name>
-              <description>GPIO1[n] output data</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- PUE -->
-        <register>
-          <name>PUE</name>
-          <description>GPIO1 pull-up enable</description>
-          <addressOffset>0x10</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>PUE</name>
-              <description>GPIO1[n] pull-up enable</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- PODE -->
-        <register>
-          <name>PODE</name>
-          <description>GPIO1 open drain enable</description>
-          <addressOffset>0x18</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>PODE</name>
-              <description>GPIO1[n] open drain enable</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- PFLT -->
-        <register>
-          <name>PFLT</name>
-          <description>GPIO1 filter enable</description>
-          <addressOffset>0x1C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>PFLT</name>
-              <description>GPIO1[n] filter enable</description>
-              <bitRange>[15:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- F3210 -->
-        <register>
-          <name>F3210</name>
-          <description>GPIO1[3:0] function selection</description>
-          <addressOffset>0x20</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>F3</name>
-              <description>GPIO1[3] function selection</description>
-              <bitRange>[15:12]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F2</name>
-              <description>GPIO1[2] function selection</description>
-              <bitRange>[11:8]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F1</name>
-              <description>GPIO1[1] function selection</description>
-              <bitRange>[7:4]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F0</name>
-              <description>GPIO1[0] function selection</description>
-              <bitRange>[3:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- F7654 -->
-        <register>
-          <name>F7654</name>
-          <description>GPIO1[7:4] function selection</description>
-          <addressOffset>0x24</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>F7</name>
-              <description>GPIO1[7] function selection</description>
-              <bitRange>[15:12]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F6</name>
-              <description>GPIO1[6] function selection</description>
-              <bitRange>[11:8]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F5</name>
-              <description>GPIO1[5] function selection</description>
-              <bitRange>[7:4]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F4</name>
-              <description>GPIO1[4] function selection</description>
-              <bitRange>[3:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- FBA98 -->
-        <register>
-          <name>FBA98</name>
-          <description>GPIO1[11:8] function selection</description>
-          <addressOffset>0x28</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>F11</name>
-              <description>GPIO1[11] function selection</description>
-              <bitRange>[15:12]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F10</name>
-              <description>GPIO1[10] function selection</description>
-              <bitRange>[11:8]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F9</name>
-              <description>GPIO1[9] function selection</description>
-              <bitRange>[7:4]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F8</name>
-              <description>GPIO1[8] function selection</description>
-              <bitRange>[3:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- FFEDC -->
-        <register>
-          <name>FFEDC</name>
-          <description>GPIO1[15:12] function selection</description>
-          <addressOffset>0x2C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>F15</name>
-              <description>GPIO1[3] function selection</description>
-              <bitRange>[15:12]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F14</name>
-              <description>GPIO1[2] function selection</description>
-              <bitRange>[11:8]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F13</name>
-              <description>GPIO1[1] function selection</description>
-              <bitRange>[7:4]</bitRange>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>F12</name>
-              <description>GPIO1[0] function selection</description>
-              <bitRange>[3:0]</bitRange>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- BSRR -->
-        <register>
-          <name>BSRR</name>
-          <description>GPIO1 bit set reset reg</description>
-          <addressOffset>0x30</addressOffset>
-          <size>32</size>
-          <access>write-only</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>CLR</name>
-              <description>GPIO1[n] write 1 to clear</description>
-              <bitRange>[31:16]</bitRange>
-              <access>write-only</access>
-            </field>
-            <field>
-              <name>SET</name>
-              <description>GPIO1[n] write 1 to set</description>
-              <bitRange>[15:0]</bitRange>
-              <access>write-only</access>
-            </field>
-          </fields>
-        </register>
-  
-      <!-- BRR -->
-        <register>
-          <name>BRR</name>
-          <description>GPIO1 bit reset reg</description>
-          <addressOffset>0x34</addressOffset>
-          <size>32</size>
-          <access>write-only</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000FFFF</resetMask>
-  
-          <fields>
-            <field>
-              <name>CLR</name>
-              <description>GPIO1[n] write 1 to clear</description>
-              <bitRange>[15:0]</bitRange>
-              <access>write-only</access>
-            </field>
-          </fields>
-        </register>
-      </registers>
     </peripheral>
   
     <!-- EXTI -->
@@ -9379,7 +9030,7 @@
       <!-- CR0 -->
         <register>
           <name>CR0</name>
-          <description>GPIO0[7:0] external interrupt trigger type</description>
+          <description>GPIO0 external interrupt trigger type</description>
           <addressOffset>0x00</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -9389,43 +9040,43 @@
           <fields>
             <field>
               <name>T7</name>
-              <description>GPIO0[7] external interrupt trigger type</description>
+              <description>GPIO0[9] external interrupt trigger type</description>
               <bitRange>[15:14]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T6</name>
-              <description>GPIO0[6] external interrupt trigger type</description>
+              <description>GPIO0[8] external interrupt trigger type</description>
               <bitRange>[13:12]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T5</name>
-              <description>GPIO0[5] external interrupt trigger type</description>
+              <description>GPIO0[7] external interrupt trigger type</description>
               <bitRange>[11:10]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T4</name>
-              <description>GPIO0[4] external interrupt trigger type</description>
+              <description>GPIO0[6] external interrupt trigger type</description>
               <bitRange>[9:8]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T3</name>
-              <description>GPIO0[3] external interrupt trigger type</description>
+              <description>GPIO0[5] external interrupt trigger type</description>
               <bitRange>[7:6]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T2</name>
-              <description>GPIO0[2] external interrupt trigger type</description>
+              <description>GPIO0[4] external interrupt trigger type</description>
               <bitRange>[5:4]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T1</name>
-              <description>GPIO0[1] external interrupt trigger type</description>
+              <description>GPIO0[2] external interrupt trigger type</description>
               <bitRange>[3:2]</bitRange>
               <access>read-write</access>
             </field>
@@ -9441,7 +9092,7 @@
       <!-- CR1 -->
         <register>
           <name>CR1</name>
-          <description>GPIO0[15:8] external interrupt trigger type</description>
+          <description>GPIO external interrupt trigger type</description>
           <addressOffset>0x04</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -9451,49 +9102,49 @@
           <fields>
             <field>
               <name>T15</name>
-              <description>GPIO0[15] external interrupt trigger type</description>
+              <description>GPIO1[9] external interrupt trigger type</description>
               <bitRange>[15:14]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T14</name>
-              <description>GPIO0[14] external interrupt trigger type</description>
+              <description>GPIO1[8] external interrupt trigger type</description>
               <bitRange>[13:12]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T13</name>
-              <description>GPIO0[13] external interrupt trigger type</description>
+              <description>GPIO1[7] external interrupt trigger type</description>
               <bitRange>[11:10]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T12</name>
-              <description>GPIO0[12] external interrupt trigger type</description>
+              <description>GPIO1[6] external interrupt trigger type</description>
               <bitRange>[9:8]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T11</name>
-              <description>GPIO0[11] external interrupt trigger type</description>
+              <description>GPIO1[5] external interrupt trigger type</description>
               <bitRange>[7:6]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T10</name>
-              <description>GPIO0[10] external interrupt trigger type</description>
+              <description>GPIO1[4] external interrupt trigger type</description>
               <bitRange>[5:4]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T9</name>
-              <description>GPIO0[9] external interrupt trigger type</description>
+              <description>GPIO0[15] external interrupt trigger type</description>
               <bitRange>[3:2]</bitRange>
               <access>read-write</access>
             </field>
             <field>
               <name>T8</name>
-              <description>GPIO0[8] external interrupt trigger type</description>
+              <description>GPIO0[14] external interrupt trigger type</description>
               <bitRange>[1:0]</bitRange>
               <access>read-write</access>
             </field>
