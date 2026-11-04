@@ -976,12 +976,12 @@
                   <value>5</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>0P12</name>
+                  <name>0P121</name>
                   <description>0.12</description>
                   <value>6</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>0P12</name>
+                  <name>0P122</name>
                   <description>0.12</description>
                   <value>7</value>
                 </enumeratedValue>
@@ -1442,7 +1442,7 @@
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>LRC</name>
+                  <name>LRC2</name>
                   <description>Use LRC clock as system clock</description>
                   <value>3</value>
                 </enumeratedValue>
@@ -2459,8 +2459,8 @@
           <addressOffset>0x00</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000024</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0024</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -2480,7 +2480,7 @@
                   <value>2</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>NoDuplex</name>
+                  <name>NoDuplex2</name>
                   <description>No duplex</description>
                   <value>1</value>
                 </enumeratedValue>
@@ -2609,8 +2609,8 @@
           <addressOffset>0x04</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -2767,8 +2767,8 @@
           <addressOffset>0x08</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -2805,8 +2805,8 @@
           <addressOffset>0x0C</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -2825,8 +2825,8 @@
           <addressOffset>0x10</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -2845,8 +2845,8 @@
           <addressOffset>0x14</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -2937,8 +2937,8 @@
           <addressOffset>0x00</addressOffset>
           <size>8</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x000000FF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0x00FF</resetMask>
   
           <fields>
             <field>
@@ -2975,8 +2975,8 @@
           <addressOffset>0x04</addressOffset>
           <size>8</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x000000FF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0x00FF</resetMask>
   
           <fields>
             <field>
@@ -3097,8 +3097,8 @@
           <addressOffset>0x08</addressOffset>
           <size>8</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x000000FF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0x00FF</resetMask>
   
           <fields>
             <field>
@@ -3171,8 +3171,8 @@
           <addressOffset>0x0C</addressOffset>
           <size>8</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x000000FF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0x00FF</resetMask>
   
           <fields>
             <field>
@@ -3191,8 +3191,8 @@
           <addressOffset>0x10</addressOffset>
           <size>8</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x0000000F</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0x000F</resetMask>
   
           <fields>
             <field>
@@ -3229,8 +3229,8 @@
           <addressOffset>0x14</addressOffset>
           <size>8</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0x000000FF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0x00FF</resetMask>
   
           <fields>
             <field>
@@ -3360,8 +3360,8 @@
           <addressOffset>0x00</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -3446,8 +3446,8 @@
           <addressOffset>0x04</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -3472,8 +3472,8 @@
           <addressOffset>0x08</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -3546,8 +3546,8 @@
           <addressOffset>0x0C</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -3644,8 +3644,8 @@
           <addressOffset>0x10</addressOffset>
           <size>16</size>
           <access>read-write</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -3706,8 +3706,8 @@
           <addressOffset>0x14</addressOffset>
           <size>16</size>
           <access>read-only</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
           <fields>
             <field>
@@ -10590,8 +10590,8 @@
           <addressOffset>0x34</addressOffset>
           <size>16</size>
           <access>read-only</access>
-          <resetValue>0x00000000</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetValue>0x0000</resetValue>
+          <resetMask>0xFFFF</resetMask>
   
         </register>
   
