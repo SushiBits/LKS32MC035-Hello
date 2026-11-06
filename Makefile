@@ -4,6 +4,8 @@ TARGET_HEX := $(TARGET:.elf=.ihx)
 TARGET_BIN := $(TARGET:.elf=.bin)
 TARGETS := $(TARGET) $(TARGET_HEX) $(TARGET_BIN)
 
+BUILD_DIR := .build
+
 ARCH := arm-none-eabi-
 CC := $(ARCH)gcc
 CXX := $(ARCH)g++
@@ -28,7 +30,7 @@ CXX_FILES := $(wildcard $(addsuffix /*.cc, $(SRC_PATHS)) $(addsuffix /*.cpp, $(S
 S_FILES := $(wildcard $(addsuffix /*.S, $(SRC_PATHS)) $(addsuffix /*.s, $(SRC_PATHS)))
 LD_FILES := $(wildcard $(addsuffix /*.ld, $(LIB_PATHS)))
 SRC_FILES := $(C_FILES) $(CXX_FILES) $(S_FILES)
-OBJS := $(addsuffix .o, $(SRC_FILES))
+OBJS := $(addprefix $(BUILD_DIR)/,$(addsuffix .o, $(SRC_FILES)))
 DEPS := $(OBJS:.o=.d)
 
 CPUFLAGS := -mcpu=cortex-m0 -mthumb
@@ -55,19 +57,24 @@ platform/include/LKS32MC03x.h: platform/share/LKS32MC03x.svd
 platform/include/LKS32MC03x_handlers.h: platform/include/LKS32MC03x.h
 	bash platform/share/irqn.sh "\"LKS32MC03x_it.h\"" < $< > $@
 
-%.c.o: %.c $(GENHDRS)
+$(BUILD_DIR)/%.c.o: %.c $(GENHDRS)
+	@mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-%.cc.o: %.cc $(GENHDRS)
+$(BUILD_DIR)/%.cc.o: %.cc $(GENHDRS)
+	@mkdir -p $(dir $@)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-%.cpp.o: %.cpp $(GENHDRS)
+$(BUILD_DIR)/%.cpp.o: %.cpp $(GENHDRS)
+	@mkdir -p $(dir $@)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-%.S.o: %.S $(GENHDRS)
+$(BUILD_DIR)/%.S.o: %.S $(GENHDRS)
+	@mkdir -p $(dir $@)
 	$(CCAS) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
-%.s.o: %.s $(GENHDRS)
+$(BUILD_DIR)/%.s.o: %.s $(GENHDRS)
+	@mkdir -p $(dir $@)
 	$(AS) $(ASFLAGS) -c $< -o $@
 
 $(TARGET): $(OBJS) $(LD_FILES)
@@ -80,7 +87,7 @@ $(TARGET): $(OBJS) $(LD_FILES)
 	$(OBJCOPY) -O binary $< $@
 
 clean:
-	-rm -rf $(TARGETS) $(DEPS) $(OBJS)
+	-rm -rf $(TARGETS) $(BUILD_DIR)
 
 distclean: clean
 	-rm -rf $(GENHDRS)
