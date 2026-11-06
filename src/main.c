@@ -7,6 +7,7 @@
 #include "LKS32MC03x.h"
 
 #include "gpio.h"
+#include "systick.h"
 
 int main(void) {
     // Disable WDT.
@@ -25,7 +26,7 @@ int main(void) {
     // p.s. This harkens of the TI MSP430 CPU16 series. Haven't tried MSPM0 yet but I suspect it is the same.
     IWDG->CFG = IWDG_CFG_DISABLE_KEY_KEY << IWDG_CFG_DISABLE_KEY_Pos;
 
-    // Prepare GPIO.
+    systick_init();
     gpio_init();
 
     for (;;) __WFE(); // Idle loop.
