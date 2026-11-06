@@ -23,8 +23,10 @@ void gpio_init(void) {
     // leave the GPIO filter unused.
 
     // These zero-crossing pins generate interrupts on all their transition edges.
-    EXTI->CR0 |= (0b11 << EXTI_CR0_T5_Pos) | (0b11 << EXTI_CR0_T6_Pos);
-    EXTI->CR1 |= (0b11 << EXTI_CR1_T10_Pos);
+    // TODO: Rename the EXTI fields in SVD. Their current names are plain wrong, referencing wirings of a
+    // different chip.
+    EXTI->CR0 |= (EXTI_CR0_T5_BOTH << EXTI_CR0_T5_Pos) | (EXTI_CR0_T6_BOTH << EXTI_CR0_T6_Pos);
+    EXTI->CR1 |= (EXTI_CR1_T10_BOTH << EXTI_CR1_T10_Pos);
 
     // HU, HV, HW = P0.15, P0.14 and P0.13 (MCPWM outputs driving the gate drivers)
     // LU, LV, LW = P0.12, P0.11 and P0.10 (MCPWM outputs driving the gate drivers)
@@ -38,7 +40,7 @@ void gpio_init(void) {
 
     // We need to make sure the MCPWM is in its REMAP status before attaching the GPIO pins to it.
     SYS->CLK_FEN |= SYS_CLK_FEN_MCPWM_CLK_EN_ENABLED << SYS_CLK_FEN_MCPWM_CLK_EN_Pos;
-    MCPWM->SWAP = 0x67; // Another magic in RM not in SVD. TODO: Fix SVD later to symbolize this.
-    MODIFY_REG(GPIO0->FBA98, 0xFF00, 0x3300);
-    GPIO0->FFEDC = 0x3333;
+    MCPWM->SWAP = MCPWM_SWAP_SWAP_SWAP; // Another magic in RM not in SVD. TODO: Fix SVD later to symbolize this.
+    MODIFY_REG(GPIO0->AFR[2], 0xFF00, 0x3300);
+    GPIO0->AFR[3] = 0x3333;
 }
