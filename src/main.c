@@ -6,6 +6,8 @@
 
 #include "LKS32MC03x.h"
 
+#include "gpio.h"
+
 int main(void) {
     // Disable WDT.
     // The IWDG is enabled by default with or without a debugger attached.
@@ -22,6 +24,9 @@ int main(void) {
     // suffice, along with nice Arduino-ish millis() and delay() functions. But I digress.)
     // p.s. This harkens of the TI MSP430 CPU16 series. Haven't tried MSPM0 yet but I suspect it is the same.
     IWDG->CFG = IWDG_CFG_DISABLE_KEY_KEY << IWDG_CFG_DISABLE_KEY_Pos;
+
+    // Prepare GPIO.
+    gpio_init();
 
     for (;;) __WFE(); // Idle loop.
 }
