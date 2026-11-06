@@ -38,9 +38,14 @@ void gpio_init(void) {
     MODIFY_REG(GPIO0->PDO, 0b111111 << 10, 0b111000 << 10);
     GPIO0->POE |= 0b111111 << 10;
 
+    // Enable inputs on the MCPWM pins so I can observe them.
+    // No idea why this is even needed. Explain yourself, Linko.
+    GPIO0->PIE |= 0b111111 << 10;
+
     // We need to make sure the MCPWM is in its REMAP status before attaching the GPIO pins to it.
     SYS->CLK_FEN |= SYS_CLK_FEN_MCPWM_CLK_EN_ENABLED << SYS_CLK_FEN_MCPWM_CLK_EN_Pos;
-    MCPWM->SWAP = MCPWM_SWAP_SWAP_SWAP; // Another magic in RM not in SVD. TODO: Fix SVD later to symbolize this.
+    MCPWM->PRT = MCPWM_PRT_KEY_KEY; // This is necessary for the next step.
+    MCPWM->SWAP = MCPWM_SWAP_SWAP_SWAP; // Swap the pin mapping as per recommended by the DS.
     MODIFY_REG(GPIO0->AFR[2], 0xFF00, 0x3300);
     GPIO0->AFR[3] = 0x3333;
 }

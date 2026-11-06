@@ -7973,7 +7973,19 @@
           <access>write-only</access>
           <resetValue>0x00000000</resetValue>
           <resetMask>0x0000FFFF</resetMask>
-  
+          <fields>
+            <field>
+              <name>KEY</name>
+              <bitRange>[15:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>KEY</name>
+                  <description>Unlock key</description>
+                  <value>0xDEAD</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
         </register>
   
       <!-- SWAP -->
