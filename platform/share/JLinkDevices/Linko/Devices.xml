@@ -1,0 +1,32 @@
+<Database>
+  <Device>
+    <ChipInfo Vendor="LINKO semi" Name="LKS32MC03x" Core="JLINK_CORE_CORTEX_M0" WorkRAMAddr="0x20000000" WorkRAMSize="0x2000" />
+	<FlashBankInfo Name="Int. Flash" BaseAddr="0x0000000" AlwaysPresent="1">
+        <LoaderInfo Name="Default" MaxSize="0x8000" Loader="LKS32MC03x.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+  </Device> 
+  <Device>
+    <ChipInfo Vendor="LINKO semi" Name="LKS32MC05x" Core="JLINK_CORE_CORTEX_M0" WorkRAMAddr="0x20000000" WorkRAMSize="0x0A00" />
+	<FlashBankInfo Name="Int. Flash" BaseAddr="0x0000000" AlwaysPresent="1">
+        <LoaderInfo Name="Default" MaxSize="0x10000" Loader="LKS32MC05x.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+  </Device> 
+  <Device>
+    <ChipInfo Vendor="LINKO semi" Name="LKS32MC06x" Core="JLINK_CORE_CORTEX_M0" WorkRAMAddr="0x20000000" WorkRAMSize="0x1000" />
+	<FlashBankInfo Name="Int. Flash" BaseAddr="0x0000000" AlwaysPresent="1">
+        <LoaderInfo Name="Default" MaxSize="0x8000" Loader="LKS32MC06x.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+  </Device>  
+  <Device>
+    <ChipInfo Vendor="LINKO semi" Name="LKS32MC08x" Core="JLINK_CORE_CORTEX_M0" WorkRAMAddr="0x20000000" WorkRAMSize="0x2000" />
+	<FlashBankInfo Name="Int. Flash" BaseAddr="0x0000000" AlwaysPresent="1">
+        <LoaderInfo Name="Default" MaxSize="0x10000" Loader="LKS32MC08x.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+  </Device>
+  <Device>
+    <ChipInfo Vendor="LINKO semi" Name="LKS32MC09x" Core="JLINK_CORE_CORTEX_M4" WorkRAMAddr="0x20000000" WorkRAMSize="0x2000" />
+	<FlashBankInfo Name="Int. Flash" BaseAddr="0x0000000" AlwaysPresent="1">
+        <LoaderInfo Name="Default" MaxSize="0x40000" Loader="LKS32MC09x.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" />
+    </FlashBankInfo>
+  </Device> 
+</Database>

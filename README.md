@@ -25,4 +25,8 @@ license.
 The `doc/LKS32MC03x*.pdf` and `platform/share/LKS32MC03x.svd` files' copyright
 belong to Linko Semiconductor Co. Ltd. with my edits.
 
+The `platform/share/JLinkDevices/Linko/*.FLM` files are Linko's flash
+algorithms, redistributed unmodified. The `Devices.xml` that indexes them is
+mine.
+
 Files under `cmsis` copyright Arm Inc. See [its own license](cmsis/LICENSE).
