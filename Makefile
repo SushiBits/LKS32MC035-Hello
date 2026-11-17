@@ -14,14 +14,12 @@ CCAS := $(CC) -x assembler-with-cpp
 CCLD := $(CC)
 CXXLD := $(CXX)
 OBJCOPY := $(ARCH)objcopy
-
-SVDCONV_PATH := C:\Keil_v5\UV4
-SVDCONV := $(SVDCONV_PATH)/SVDConv.exe
+PYTHON ?= python3
 
 GENHDRS := platform/include/LKS32MC03x.h platform/include/LKS32MC03x_handlers.h
 
 SRC_PATHS := src platform/src
-HEADER_PATHS := include platform/include cmsis/include
+HEADER_PATHS := include platform/include cmsis/CMSIS/Core/Include
 LIB_PATHS := lib platform/lib
 LIBS += -lm
 
@@ -52,10 +50,10 @@ headers: $(GENHDRS)
 .PHONY: all hex bin headers clean distclean
 
 platform/include/LKS32MC03x.h: platform/share/LKS32MC03x.svd
-	-$(SVDCONV) $< -o $(dir $@) --generate=header --fields=macro --fields=enum
+	$(PYTHON) tools/svdconv/svdconv.py $< -o $(dir $@) --generate=header --fields=macro --fields=enum
 
 platform/include/LKS32MC03x_handlers.h: platform/include/LKS32MC03x.h
-	bash platform/share/irqn.sh "\"LKS32MC03x_it.h\"" < $< > $@
+	$(PYTHON) tools/irqn/irqn.py LKS32MC03x_it.h -i $< -o $@
 
 $(BUILD_DIR)/%.c.o: %.c $(GENHDRS)
 	@mkdir -p $(dir $@)

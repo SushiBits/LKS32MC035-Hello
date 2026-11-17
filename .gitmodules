@@ -1,0 +1,9 @@
+[submodule "tools/irqn"]
+	path = tools/irqn
+	url = https://github.com/SushiBits/irqn.git
+[submodule "tools/svdconv"]
+	path = tools/svdconv
+	url = https://github.com/SushiBits/svdconv.git
+[submodule "cmsis"]
+	path = cmsis
+	url = https://github.com/ARM-software/CMSIS_6.git
